@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splashPaddingMain">50dp</dimen>
+    <dimen name="flatEarth">400dp</dimen>
+    <dimen name="splashIvHeight">400dp</dimen>
+    <dimen name="splashTextSize">50dp</dimen>
+</resources>
