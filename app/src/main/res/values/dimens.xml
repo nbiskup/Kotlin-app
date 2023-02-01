@@ -4,4 +4,11 @@
     <dimen name="flatEarth">400dp</dimen>
     <dimen name="splashIvHeight">400dp</dimen>
     <dimen name="splashTextSize">50dp</dimen>
+    <dimen name="paddingAbout">20dp</dimen>
+    <dimen name="textSizePadding">50sp</dimen>
+    <dimen name="navHeadMarginTop">20dp</dimen>
+    <dimen name="navHeaderWidth">150dp</dimen>
+    <dimen name="navHeaderHeight">100dp</dimen>
+    <dimen name="navViewWidth">120dp</dimen>
+    <dimen name="navViewHeight">240dp</dimen>
 </resources>
