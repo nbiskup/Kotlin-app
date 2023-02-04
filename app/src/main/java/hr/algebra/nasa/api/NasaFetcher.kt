@@ -1,8 +1,10 @@
 package hr.algebra.nasa.api
 
+import android.content.ContentValues
 import android.content.Context
 import android.provider.Settings.Global
 import android.util.Log
+import hr.algebra.nasa.NASA_PROVIDER_CONTENT_URI
 import hr.algebra.nasa.NasaReceiver
 import hr.algebra.nasa.framework.sendBroadcast
 import hr.algebra.nasa.handler.downloadImageAndStore
@@ -34,7 +36,7 @@ class NasaFetcher(private val context: Context) {
             }
 
             override fun onFailure(call: Call<List<NasaItem>>, t: Throwable) {
-                Log.e("API", t.toString(),t)
+                Log.e(javaClass.name, t.toString(),t)
             }
 
         })
@@ -44,19 +46,18 @@ class NasaFetcher(private val context: Context) {
     private fun populateItems(nasaItems: List<NasaItem>) {
 
         GlobalScope.launch {
-            val items = mutableListOf<Item>()
+            //val items = mutableListOf<Item>()
             nasaItems.forEach{
-                val picturePath = downloadImageAndStore(context, it.url)
-                items.add(
-                    Item(
-                        null,
-                        it.title,
-                        it.explanation,
-                        picturePath ?: "",
-                        it.date,
-                        false
-                    )
-                )
+                var picturePath = downloadImageAndStore(context, it.url)
+
+                val values = ContentValues().apply {
+                    put(Item::title.name, it.title)
+                    put(Item::explanation.name, it.explanation)
+                    put(Item::picturePath.name, picturePath)
+                    put(Item::date.name, it.date)
+                    put(Item::read.name, false)
+                }
+                context.contentResolver.insert(NASA_PROVIDER_CONTENT_URI, values)
             }
             context.sendBroadcast<NasaReceiver>()
         }
