@@ -46,7 +46,6 @@ class NasaFetcher(private val context: Context) {
     private fun populateItems(nasaItems: List<NasaItem>) {
 
         GlobalScope.launch {
-            //val items = mutableListOf<Item>()
             nasaItems.forEach{
                 var picturePath = downloadImageAndStore(context, it.url)
 

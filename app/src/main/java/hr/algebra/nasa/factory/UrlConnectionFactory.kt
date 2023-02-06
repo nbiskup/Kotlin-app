@@ -9,7 +9,7 @@ private const val METHOD_GET = "GET"
 private const val USER_AGENT = "User-Agent"
 private const val MOZILLA = "Mozilla/5.0"
 
-fun createGetHttpUrlConnection(url: String): HttpURLConnection {
+fun createGetHttpUrlConnection(url: String?): HttpURLConnection {
     val _url = URL(url)
     return (_url.openConnection() as HttpURLConnection).apply {
         connectTimeout = TIMEOUT

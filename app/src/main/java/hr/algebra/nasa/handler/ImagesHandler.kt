@@ -9,8 +9,8 @@ import java.nio.file.Files
 import java.nio.file.Paths
 
 
-fun downloadImageAndStore(context: Context, url: String): String? {
-    val fileName = url.substring(url.lastIndexOf("/")+1)
+fun downloadImageAndStore(context: Context, url: String?): String? {
+    val fileName = url?.substring(url.lastIndexOf("/")+1)
     val file: File = createFile(context, fileName)
 
     try {
@@ -25,7 +25,7 @@ fun downloadImageAndStore(context: Context, url: String): String? {
 }
 
 
-fun createFile(context: Context, fileName: String): File {
+fun createFile(context: Context, fileName: String?): File {
     val dir = context.applicationContext.getExternalFilesDir(null)
     val file = File(dir, fileName)
 
