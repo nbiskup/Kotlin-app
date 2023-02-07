@@ -8,6 +8,7 @@ import hr.algebra.nasa.framework.fetchItems
 import hr.algebra.nasa.model.Item
 
 const val POSITION = "hr.algebra.nasa.position"
+
 class ItemPagerActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityItemPagerBinding
@@ -24,6 +25,7 @@ class ItemPagerActivity : AppCompatActivity() {
     }
 
     override fun onSupportNavigateUp(): Boolean {
+
         onBackPressed()
         return super.onSupportNavigateUp()
     }
