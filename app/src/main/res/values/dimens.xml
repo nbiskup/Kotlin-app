@@ -16,4 +16,6 @@
     <dimen name="tvSize">20sp</dimen>
     <dimen name="marginLeft">20dp</dimen>
     <dimen name="radius">9dp</dimen>
+    <dimen name="ivPagerHeight">300dp</dimen>
+    <dimen name="marginTop">20dp</dimen>
 </resources>

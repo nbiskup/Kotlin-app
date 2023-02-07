@@ -14,16 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Nasa"
         tools:targetApi="31">
+        <activity
+            android:name=".ItemPagerActivity"
+            android:exported="false" />
+
         <provider
             android:name=".NasaProvider"
             android:authorities="hr.algebra.nasa.api.provider"
             android:enabled="true"
-            android:exported="false"></provider>
+            android:exported="false" />
 
         <receiver
             android:name=".NasaReceiver"
             android:enabled="true"
-            android:exported="false"></receiver>
+            android:exported="false" />
 
         <service
             android:name=".NasaService"

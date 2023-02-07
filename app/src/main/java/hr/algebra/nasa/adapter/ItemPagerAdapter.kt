@@ -2,6 +2,7 @@ package hr.algebra.nasa.adapter
 
 
 import android.content.ContentUris
+import android.content.ContentValues
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -19,13 +20,17 @@ import hr.algebra.nasa.model.Item
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
 import java.io.File
 
-class ItemAdapter(private val context: Context, private val items: MutableList<Item>) : RecyclerView.Adapter<ItemAdapter.ViewHolder>(){
+class ItemPagerAdapter(private val context: Context, private val items: MutableList<Item>) : RecyclerView.Adapter<ItemPagerAdapter.ViewHolder>(){
 
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val ivItem = itemView.findViewById<ImageView>(R.id.ivItem)
+        val ivRead = itemView.findViewById<ImageView>(R.id.ivRead)
+
         private val tvTitle = itemView.findViewById<TextView>(R.id.tvTitle)
+        private val tvDate = itemView.findViewById<TextView>(R.id.tvDate)
+        private val tvExplanation = itemView.findViewById<TextView>(R.id.tvExplanation)
 
         fun bind(item: Item){
             Picasso.get()
@@ -34,13 +39,16 @@ class ItemAdapter(private val context: Context, private val items: MutableList<I
                 .transform(RoundedCornersTransformation(50,5))
                 .into(ivItem)
             tvTitle.text = item.title
+            tvDate.text = item.date
+            tvExplanation.text = item.explanation
+            ivRead.setImageResource(if (item.read) R.drawable.green_flag else R.drawable.red_flag)
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.item, parent, false)
+                .inflate(R.layout.item_pager, parent, false)
         )
     }
 
@@ -49,25 +57,20 @@ class ItemAdapter(private val context: Context, private val items: MutableList<I
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
 
-        holder.itemView.setOnLongClickListener{
-            deleteItem(position)
-            true
-        }
+        holder.ivRead.setOnClickListener{
+            item.read = !item.read
 
-        holder.itemView.setOnClickListener{
-           context.startActivity<ItemPagerActivity>(POSITION, position)
+            context.contentResolver.update(
+                ContentUris.withAppendedId(NASA_PROVIDER_CONTENT_URI, item._id!!),
+                ContentValues().apply {
+                    put(Item::read.name, item.read)
+                },
+                null,null
+            )
+            notifyItemChanged(position)
         }
 
         holder.bind(item)
     }
 
-    private fun deleteItem(position: Int) {
-        val item = items[position]
-        context.contentResolver.delete(
-            ContentUris.withAppendedId(NASA_PROVIDER_CONTENT_URI, item._id!!), null, null
-        )
-        File(item.picturePath).delete()
-        items.removeAt(position)
-        notifyDataSetChanged()
-    }
 }
