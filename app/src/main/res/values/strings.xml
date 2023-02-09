@@ -12,4 +12,12 @@
     <string name="date">Date</string>
     <string name="title">Title</string>
     <string name="explanation">Explanation</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="not_a_member">Not a member</string>
+    <string name="sign_up">Sign up</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="password_not_match">Password is not matching</string>
+    <string name="insert_data_in_empty_fields">Insert data in empty fields</string>
 </resources>
