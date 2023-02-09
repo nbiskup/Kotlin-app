@@ -9,8 +9,8 @@
     <dimen name="navHeadMarginTop">20dp</dimen>
     <dimen name="navHeaderWidth">150dp</dimen>
     <dimen name="navHeaderHeight">100dp</dimen>
-    <dimen name="navViewWidth">120dp</dimen>
-    <dimen name="navViewHeight">240dp</dimen>
+    <dimen name="navViewWidth">180dp</dimen>
+    <dimen name="navViewHeight">300dp</dimen>
     <dimen name="itemsPadding">10dp</dimen>
     <dimen name="ivSize">50dp</dimen>
     <dimen name="tvSize">20sp</dimen>
@@ -21,4 +21,5 @@
     <dimen name="tiMarginTop">16dp</dimen>
     <dimen name="lottieMarginTop">15dp</dimen>
     <dimen name="animationMarginTop">15dp</dimen>
+    <dimen name="buttonHeight">50dp</dimen>
 </resources>

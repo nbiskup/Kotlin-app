@@ -18,8 +18,9 @@
         android:id="@+id/menuAbout"
         android:name="hr.algebra.nasa.AboutFragment"/>
 
-    <activity
-        android:id="@+id/activityMenuMap"
+    <fragment
+        android:id="@+id/menuMap"
+        android:name="hr.algebra.nasa.MapsFragment"
         android:label="Google maps"
         tools:layout="@layout/fragment_maps"/>
 
