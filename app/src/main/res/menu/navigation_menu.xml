@@ -10,4 +10,8 @@
         android:icon="@drawable/about"
         android:id="@+id/menuAbout"/>
 
+    <item
+        android:title="@string/google_maps"
+        android:icon="@drawable/about"
+        android:id="@+id/menuGoogleMaps"/>
 </menu>

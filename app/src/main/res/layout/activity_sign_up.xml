@@ -9,6 +9,17 @@
     android:padding="@dimen/tiMarginTop"
     tools:context=".SignUpActivity">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/logoAnim"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/lottieMarginTop"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/astronaut"
+        />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/emailLayout"

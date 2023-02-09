@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import com.airbnb.lottie.LottieAnimationView
 import hr.algebra.nasa.databinding.ActivitySplashScreenBinding
 import hr.algebra.nasa.framework.*
 
@@ -34,8 +35,6 @@ class SplashScreenActivity : AppCompatActivity() {
             }
         }
     }
-
-
 
     private fun startAnimations() {
         binding.tvSplash.applyAnimation(R.anim.blink)

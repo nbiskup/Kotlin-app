@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin' version '2.0.1' apply false
 }
 
 android {
@@ -67,4 +68,7 @@ dependencies {
 
     //lottie
     implementation 'com.airbnb.android:lottie:3.4.0'
+
+    //google maps
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
 }

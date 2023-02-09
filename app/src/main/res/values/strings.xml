@@ -20,4 +20,7 @@
     <string name="confirm_password">Confirm password</string>
     <string name="password_not_match">Password is not matching</string>
     <string name="insert_data_in_empty_fields">Insert data in empty fields</string>
+    <string name="google_maps">Google maps</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
